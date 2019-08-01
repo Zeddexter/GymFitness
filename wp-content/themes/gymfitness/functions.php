@@ -1,5 +1,8 @@
 <?php
 
+/** Consultas reutilizables  **/
+require get_template_directory().'/inc/queries.php';
+
 // Cuando el tema es activado
 
 function gymfitness_setup(){
@@ -39,3 +42,25 @@ function gymfitness_scripts_styles(){
     wp_enqueue_script('scripts',get_template_directory_uri().'/js/scripts.js',array('jquery','slicknavJS'),'1.0.0',true);
 }
 add_action('wp_enqueue_scripts','gymfitness_scripts_styles');
+
+// Definir Zona de Widgets
+
+function gymfitness_widgets(){
+    register_sidebar(array(
+        'name' => 'Sidebar 1',
+        'id'   => 'sidebar_1',
+        'before_widget' => '<div class="widget">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="text-center texto-primario">',
+        'alfter_title' => '/h3>'
+    ));
+    register_sidebar(array(
+        'name' => 'Sidebar 2',
+        'id'   => 'sidebar_2',
+        'before_widget' => '<div class="widget">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class = "text-center texto-primario">',
+        'alfter_title' => '/h3>'
+    ));
+}
+add_action('widgets_init','gymfitness_widgets');

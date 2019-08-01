@@ -9,6 +9,9 @@
     Text Domain: gymfitness
  */
 
+ //Cuando alguien trate de acceder no le muestre el contenido del plugin solo se muestre en blanco.
+ if(!defined('ABSPATH')) die();
+
  // Registrar Custom Post Type
 function gymfitness_clases_post_type() {
 
